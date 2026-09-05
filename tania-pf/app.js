@@ -1,4 +1,3 @@
-const K='tpf-v6-real';
 const SEED=[
 {id:'marco',cat:'power',name:'Marco Negri',age:34,city:'Sondrio',h:188,build:'atletico',cm:19,spec:['power fuck','standing','throat'],photo:'marco',rating:0},
 {id:'diego',cat:'power',name:'Diego Pedrini',age:31,city:'Chiesa in Valmalenco',h:182,build:'muscolare',cm:20,spec:['marathon','prone bone','creampie'],photo:'diego',rating:0},
@@ -14,21 +13,30 @@ const SEED=[
 {id:'riccardo',cat:'separati',name:'Riccardo Fumagalli',age:47,city:'Lanzada',h:182,build:'silver',cm:18,spec:['divorziato','lento poi duro','weekend'],photo:'riccardo',rating:0},
 {id:'gianluca',cat:'separati',name:'Gianluca Rossi',age:42,city:'Spriana',h:180,build:'barba',cm:17,spec:['padre separato','aftercare','notte intera'],photo:'gianluca',rating:0}
 ];
+const K='tpf-v6-real';
 let db; try{db=JSON.parse(localStorage.getItem(K))}catch(e){}
 if(!db||!db.bulls) db={bulls:SEED.map(b=>Object.assign({},b)),appts:[]};
 else {
   const byId=Object.fromEntries(db.bulls.map(b=>[b.id,b]));
-  db.bulls=SEED.map(s=>Object.assign({},s,{rating:(byId[s.id]||{}).rating||0}));
+  db.bulls=SEED.map(s=>{
+    const old=byId[s.id]||{};
+    return Object.assign({},s,{rating:old.rating||0});
+  });
 }
 const save=()=>localStorage.setItem(K,JSON.stringify({bulls:db.bulls.map(b=>({id:b.id,rating:b.rating})),appts:db.appts}));
 let cat='power', view=new Date();
 const TITOLI={power:'Selezione · Power Fuck · Sondrio e Valmalenco',black:'Selezione · Black Bull · Sondrio e Valmalenco',sondrio:'Selezione · Sondrio arrogante',separati:'Selezione · Separati · Sondrio e Valmalenco'};
 function toast(t){const el=document.getElementById('msg');el.textContent=t;el.className='banner on';clearTimeout(toast._t);toast._t=setTimeout(()=>el.className='banner',3000)}
+function face(b){
+  if(PHOTOS[b.photo]) return PHOTOS[b.photo];
+  const ini=(b.name||'?').split(' ').map(x=>x[0]).join('').slice(0,2);
+  return 'data:image/svg+xml;utf8,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 118 158"><rect width="118" height="158" fill="#2a1018"/><circle cx="59" cy="56" r="26" fill="#5a3848"/><ellipse cx="59" cy="132" rx="42" ry="38" fill="#5a3848"/><text x="59" y="62" text-anchor="middle" fill="#e4c48a" font-size="22" font-family="Georgia">'+ini+'</text></svg>');
+}
 function list(){
  document.getElementById('sub').textContent=TITOLI[cat];
  document.getElementById('bulls').innerHTML=db.bulls.filter(b=>b.cat===cat).map(b=>`
   <div class="card"><div class="row">
-   <img src="${PHOTOS[b.photo]}" alt="${b.name}"/>
+   <img src="${face(b)}" alt="${b.name}"/>
    <div><b>${b.name}</b>
    <div class="meta">${b.age} · ${b.city} · ${b.h}cm · ${b.build} · ${b.cm}cm</div>
    <div>${(b.spec||[]).map(s=>'<span class="chip">'+s+'</span>').join('')}</div>
@@ -68,8 +76,8 @@ function renderCal(){
   return "<div class='card'><div class='row'><div><b>"+(b?b.name:'?')+"</b><div class='meta'>"+fmt(a.start)+" → "+fmt(a.end)+" · "+(a.place||'')+"</div></div></div></div>";
  }).join('')||"<p class='meta' style='padding:16px'>Nessuno slot.</p>";
 }
-document.getElementById('logoGate').src=LOGO;
-document.getElementById('logoApp').src=LOGO;
+const _g=document.getElementById('logoGate'); if(_g&&LOGO) _g.src=LOGO;
+const _a=document.getElementById('logoApp'); if(_a&&LOGO) _a.src=LOGO;
 document.getElementById('enter').onclick=()=>{document.getElementById('gate').style.display='none';document.getElementById('app').style.display='block';list();renderCal();};
 document.querySelectorAll('#cats button').forEach(b=>b.onclick=()=>{cat=b.dataset.cat;document.querySelectorAll('#cats button').forEach(x=>x.classList.toggle('on',x===b));list();});
 document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{
