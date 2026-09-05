@@ -2,224 +2,76 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-title" content="TPF"/>
-<meta name="theme-color" content="#0b0a0c"/>
+<meta name="theme-color" content="#0a0708"/>
 <title>TANIA POWER FUCK</title>
 <style>
-:root{--bg:#0b0a0c;--card:#161318;--line:#3a3034;--red:#c41648;--gold:#e8c989;--txt:#f7f1e8;--dim:#9a9088}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{margin:0;background:#0b0a0c;color:var(--txt);font:16px/1.35 -apple-system,BlinkMacSystemFont,Georgia,serif}
-#app{max-width:460px;margin:0 auto;padding:8px 14px 88px}
-@media(min-width:900px){#app{max-width:980px}}
-.logo-wrap{padding:6px 0 4px}
-.logo-wrap svg{width:100%;height:auto;display:block}
-.cats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0 14px}
-.cats button{border:1px solid #4a3840;background:#120e12;color:var(--txt);border-radius:14px;padding:12px 8px;font:700 11px/1.2 Palatino,Georgia,serif;letter-spacing:.06em}
-.cats button small{display:block;margin-top:4px;font-style:italic;font-weight:400;letter-spacing:0;color:var(--dim);font-size:11px}
-.cats button.on{background:linear-gradient(#d21b4c,#8a1233);border-color:#ff6a86;color:#fff}
-.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:10px;margin:0 0 10px;display:flex;gap:12px;align-items:center;width:100%;text-align:left;color:inherit}
-.ph{width:76px;height:76px;border-radius:16px;flex:none;display:block;background:#221c20}
-.meta{font-size:12px;color:var(--dim)}
-.stars{color:#ff5578}
-.chip{display:inline-block;margin:3px 4px 0 0;padding:3px 8px;border-radius:999px;background:#2a2226;font-size:11px}
-.search{width:100%;margin:0 0 12px;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:#110e12;color:var(--txt)}
-.btn{border:0;border-radius:14px;padding:11px 12px;font-weight:700;background:var(--red);color:#fff}
-.btn.g{background:#261e22;color:var(--txt)}
-.row{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
-.row>*{flex:1}
-label{display:block;font-size:12px;color:var(--dim);margin:10px 0 4px}
-input,select{width:100%;padding:11px;border-radius:12px;border:1px solid var(--line);background:#110e12;color:var(--txt)}
-.page{display:none}
-.page.on{display:block}
-.tabs{display:flex;gap:8px;margin:0 0 12px}
-.tabs button{flex:1;border:0;border-radius:999px;padding:10px;background:#1b1618;color:var(--dim);font-weight:700}
-.tabs button.on{background:var(--red);color:#fff}
-.banner{padding:10px 12px;border-radius:12px;background:#2a1018;color:#ff8aa3;margin:8px 0;display:none}
+html,body{margin:0;background:#0a0708;color:#f6f0e6;font:16px/1.35 -apple-system,BlinkMacSystemFont,Georgia,serif}
+#gate{position:fixed;inset:0;z-index:30;background:#0a0708;display:flex;align-items:flex-end;justify-content:center;padding:22px}
+.box{width:min(460px,100%)}
+.logo{width:100%;border-radius:16px;display:block;border:1px solid rgba(232,201,137,.28);box-shadow:0 18px 50px rgba(0,0,0,.45)}
+.btn{border:0;border-radius:14px;padding:14px;font-weight:800;background:#c41648;color:#fff;width:100%;letter-spacing:.04em}
+.btn.g{background:#231c24;color:#ddd;width:auto}
+.app{max-width:520px;margin:0 auto;padding-bottom:40px}
+.cats{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:12px}
+.cats button{border:1px solid #3a2a32;background:#120e14;color:#f6f0e6;border-radius:14px;padding:13px 8px;font-size:11px;font-weight:800;letter-spacing:.05em}
+.cats button.on{background:linear-gradient(#d21b4c,#8a1233);color:#fff;border-color:#ff6a86}
+.sub{padding:0 16px 8px;color:#e4c48a;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.card{background:#151218;border:1px solid #2c2430;border-radius:18px;margin:0 14px 12px;overflow:hidden}
+.row{display:flex;gap:12px;padding:12px;align-items:center}
+.row img{width:84px;height:112px;object-fit:cover;border-radius:12px;background:#111;flex:none}
+.meta{color:#9a9086;font-size:13px;margin-top:3px}
+.chip{display:inline-block;margin:4px 4px 0 0;padding:3px 8px;border-radius:999px;border:1px solid rgba(255,77,115,.35);color:#ff4d73;font-size:11px}
+.stars button{border:0;background:none;color:#4a3940;font-size:20px}
+.stars button.on{color:#e4c48a}
+.book{display:flex;flex-wrap:wrap;gap:8px;padding:0 12px 12px}
+.book input,.book select{flex:1;min-width:110px;padding:10px;border-radius:12px;border:1px solid #2c2430;background:#110e12;color:#f6f0e6}
+.tabs{display:flex;gap:8px;padding:0 14px 10px}
+.tabs button{flex:1;border:0;border-radius:999px;padding:10px;background:#1b161c;color:#9a9086;font-weight:700}
+.tabs button.on{background:#2a1218;color:#ff4d73}
+.page{display:none}.page.on{display:block}
+.banner{margin:8px 14px;padding:10px;border-radius:12px;background:#2a1018;color:#ff8aa3;display:none}
 .banner.on{display:block}
-.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
-.cal b,.cal i{display:grid;place-items:center;height:34px;font-style:normal;font-size:11px;color:var(--dim)}
-.cal span{display:grid;place-items:center;height:34px;border-radius:10px;background:#161218;font-size:13px}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;padding:0 14px}
+.cal b,.cal i,.cal span{display:grid;place-items:center;height:34px;font-size:12px;color:#9a9086}
+.cal span{background:#161218;border-radius:10px;color:#f6f0e6}
 .cal span.busy{background:#3a1020;color:#ff4d73;font-weight:700}
-#gate{position:fixed;inset:0;background:#0b0a0c;z-index:20;display:flex;align-items:center;justify-content:center;padding:24px}
-#gate .box{max-width:420px;width:100%;text-align:center}
-</style>
-</head>
-<body>
+</style></head><body>
 <div id="gate"><div class="box">
-<div class="logo-wrap" id="logo1"></div>
-<p class="meta">Sondrio e Val Malenco · 18+</p>
-<button class="btn" id="enter" style="margin-top:12px">Ho 18+ anni — entra</button>
+<img class="logo" alt="TANIA POWER FUCK" id="logoGate"/>
+<p style="color:#9a9086;text-align:center">Sondrio e Val Malenco · 18+</p>
+<button class="btn" id="enter">Ho 18+ anni — entra</button>
 </div></div>
-<div id="app">
-<div class="logo-wrap" id="logo2"></div>
-<div class="cats" id="cats"></div>
+<div class="app" id="app" style="display:none">
+<img class="logo" alt="TANIA POWER FUCK" id="logoApp" style="margin:10px 14px 0;width:calc(100% - 28px)"/>
+<div class="cats" id="cats">
+<button data-cat="power" class="on">POWER FUCK</button>
+<button data-cat="black">BLACK BULL</button>
+<button data-cat="sondrio">SONDRIO ARROGANTE</button>
+<button data-cat="separati">SEPARATI</button>
+</div>
+<div class="sub" id="sub">Selezione · Power Fuck</div>
 <div class="tabs">
-<button class="on" data-tab="bulls">Roster</button>
+<button class="on" data-tab="bulls">Ragazzi</button>
 <button data-tab="cal">Calendario</button>
-<button data-tab="add">Nuovo</button>
 </div>
 <div id="msg" class="banner"></div>
-<section class="page on" id="bulls">
-<input class="search" id="q" placeholder="Cerca in valle"/>
-<div id="list"></div>
-</section>
+<section class="page on" id="bulls"></section>
 <section class="page" id="cal">
-<div class="row"><button class="btn g" id="prev">‹</button><b id="mtitle" style="text-align:center;padding:10px"></b><button class="btn g" id="next">›</button></div>
-<div class="cal" id="grid"></div>
-<h3>Agenda</h3><div id="agenda"></div>
-</section>
-<section class="page" id="add">
-<label>Nome</label><input id="n_name"/>
-<label>Paese</label><select id="n_city"></select>
-<label>Rubrica</label>
-<select id="n_cat"><option value="pf">POWER FUCK</option><option value="bb">BLACK BULL</option><option value="so">SONDRIO ARROGANTE</option><option value="se">SEPARATI</option></select>
-<label>Specialità</label><input id="n_spec"/>
-<div class="row"><button class="btn" id="saveb">Salva bull</button></div>
-</section>
-<section class="page" id="detail"></section>
+<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 14px">
+<button class="btn g" id="prev">‹</button><b id="mtitle"></b><button class="btn g" id="next">›</button>
 </div>
-<script>
-const K='tpf-v4';
-const TOWNS=['Sondrio','Chiesa in Valmalenco','Caspoggio','Lanzada','Torre di Santa Maria','Spriana'];
-const CATS=[
- {id:'pf',name:'POWER FUCK',sub:'Val Malenco · duro'},
- {id:'bb',name:'BLACK BULL',sub:'Val Malenco · no filtri'},
- {id:'so',name:'SONDRIO ARROGANTE',sub:'Sondrio e valle · seducente'},
- {id:'se',name:'SEPARATI',sub:'valle · esperti'}
-];
-const SEED=[
- {id:'pf1',cat:'pf',name:'Marco Negri',age:34,city:'Sondrio',h:188,build:'atletico',cm:19,spec:['power fuck','throat','standing']},
- {id:'pf2',cat:'pf',name:'Diego Pedrini',age:31,city:'Chiesa in Valmalenco',h:182,build:'muscolare',cm:20,spec:['marathon','prone bone','creampie']},
- {id:'pf3',cat:'pf',name:'Andrei Rizzi',age:36,city:'Caspoggio',h:193,build:'powerlifter',cm:22,spec:['mating press','deep','holding down']},
- {id:'pf4',cat:'pf',name:'Luca Della Cuna',age:38,city:'Lanzada',h:190,build:'slanciato',cm:21,spec:['dirty talk','hair pull','overstim']},
- {id:'pf5',cat:'pf',name:'Christian Bongiorno',age:32,city:'Torre di Santa Maria',h:186,build:'cut',cm:20,spec:['wall','raw','round 2']},
- {id:'bb1',cat:'bb',name:'Malik Touré',age:32,city:'Sondrio',h:190,build:'dark muscle',cm:22,spec:['black bull','throat','power fuck']},
- {id:'bb2',cat:'bb',name:'Jamal Keita',age:29,city:'Chiesa in Valmalenco',h:188,build:'atletico',cm:21,spec:['prone bone','creampie','stamina']},
- {id:'bb3',cat:'bb',name:'Kwame Diarra',age:35,city:'Caspoggio',h:192,build:'power',cm:23,spec:['mating press','deep','holding down']},
- {id:'bb4',cat:'bb',name:'Darius Mensah',age:31,city:'Lanzada',h:187,build:'cut',cm:20,spec:['edging','oral lungo','raw']},
- {id:'bb5',cat:'bb',name:'Ousmane Traoré',age:33,city:'Torre di Santa Maria',h:191,build:'largo',cm:22,spec:['standing','throat','arrogance']},
- {id:'bb6',cat:'bb',name:'Antoine Ndiaye',age:28,city:'Spriana',h:185,build:'lean dark',cm:19,spec:['role switch','hotel','round 2']},
- {id:'so1',cat:'so',name:'Riccardo Negri',age:36,city:'Sondrio',h:186,build:'elegante',cm:19,spec:['arrogante','hotel','dirty talk']},
- {id:'so2',cat:'so',name:'Davide Pedrini',age:31,city:'Chiesa in Valmalenco',h:183,build:'atletico',cm:18,spec:['seducente','standing','hair pull']},
- {id:'so3',cat:'so',name:'Stefano Della Cuna',age:39,city:'Caspoggio',h:188,build:'solido',cm:20,spec:['lento poi duro','creampie']},
- {id:'so4',cat:'so',name:'Alex Bongiorno',age:28,city:'Lanzada',h:181,build:'lean',cm:18,spec:['young arrogant','throat','raw']},
- {id:'so5',cat:'so',name:'Mattia Rizzi',age:34,city:'Torre di Santa Maria',h:185,build:'mountain',cm:19,spec:['dopo sci','power fuck','hotel']},
- {id:'so6',cat:'so',name:'Luca Saligari',age:41,city:'Spriana',h:184,build:'dad cut',cm:18,spec:['controllo','overstim','notte intera']},
- {id:'se1',cat:'se',name:'Paolo Morelli',age:46,city:'Sondrio',h:182,build:'separato solido',cm:18,spec:['esperto','pussy focus','no fretta']},
- {id:'se2',cat:'se',name:'Gianni Bruni',age:49,city:'Chiesa in Valmalenco',h:180,build:'dad-bod',cm:17,spec:['divorziato','slow wreck','aftercare']},
- {id:'se3',cat:'se',name:'Roberto Conti',age:44,city:'Caspoggio',h:187,build:'tennis dad',cm:19,spec:['separato recente','raw','standing']},
- {id:'se4',cat:'se',name:'Massimo Villa',age:52,city:'Lanzada',h:178,build:'distinto',cm:17,spec:['comandare','hotel','notte']},
- {id:'se5',cat:'se',name:'Andrea Fumagalli',age:43,city:'Torre di Santa Maria',h:184,build:'palestra late',cm:18,spec:['ex moglie','deep','repeat']}
-];
-function hash(s){return [...s].reduce((a,c)=>a+c.charCodeAt(0),0)}
-function face(b){
-  const n=hash(b.id+b.name), dark=b.cat==='bb';
-  const skin=dark?['#4a2c1e','#3a2016','#5c3828','#2b1810','#6a4030'][n%5]:['#f0c8a8','#e2b48a','#d4a07a','#c99670','#ebc2a0'][n%5];
-  const hair=dark?['#120c0a','#1a100c','#0a0806'][n%3]:['#1a120c','#2c1c12','#3d2a18','#0e0c0a','#4a3422'][n%5];
-  const lip=dark?'#8a4a40':'#c47872';
-  const beard=n%3!==1;
-  const fade=n%2===0;
-  const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80"><rect width="80" height="80" rx="16" fill="#1a1418"/>
-  <ellipse cx="40" cy="86" rx="28" ry="16" fill="#222"/>
-  <circle cx="40" cy="44" r="22" fill="${skin}"/>
-  <path d="M20 40 C22 18 58 18 60 40 C58 22 22 22 20 40" fill="${hair}"/>
-  ${fade?'<path d="M18 42 C20 28 28 24 32 26 L30 44 Z" fill="'+hair+'"/><path d="M62 42 C60 28 52 24 48 26 L50 44 Z" fill="'+hair+'"/>':''}
-  <ellipse cx="32" cy="42" rx="3.2" ry="3.6" fill="#1a1210"/>
-  <ellipse cx="48" cy="42" rx="3.2" ry="3.6" fill="#1a1210"/>
-  <ellipse cx="31.4" cy="41.2" rx="1" ry="1.1" fill="#f2e8d8"/>
-  <ellipse cx="47.4" cy="41.2" rx="1" ry="1.1" fill="#f2e8d8"/>
-  <path d="M40 44 L38 50 L42 50 Z" fill="${skin}" stroke="#000" stroke-opacity=".12"/>
-  <path d="M34 56 Q40 60 46 56" fill="none" stroke="${lip}" stroke-width="2" stroke-linecap="round"/>
-  ${beard?'<path d="M26 50 Q40 72 54 50 Q40 58 26 50" fill="'+hair+'" opacity=".85"/>':''}
-  </svg>`;
-  return 'data:image/svg+xml;utf8,'+encodeURIComponent(svg);
-}
-function logoSvg(){
-  return `<svg viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="TANIA POWER FUCK">
-  <defs>
-    <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a1018"/><stop offset="1" stop-color="#0b0a0c"/></linearGradient>
-    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8a6a32"/><stop offset=".5" stop-color="#f0d7a0"/><stop offset="1" stop-color="#8a6a32"/></linearGradient>
-  </defs>
-  <rect width="400" height="150" fill="url(#g1)"/>
-  <path d="M0 150 L0 92 L38 58 L70 88 L110 36 L148 80 L200 18 L252 78 L292 40 L328 86 L360 54 L400 96 L400 150 Z" fill="#1a0e14"/>
-  <path d="M0 150 L0 104 L38 70 L70 98 L110 48 L148 90 L200 32 L252 88 L292 52 L328 96 L360 66 L400 106 L400 150 Z" fill="#241018"/>
-  <path d="M198 22 L202 22 L200 14 Z" fill="#e8c989"/>
-  <text x="200" y="78" text-anchor="middle" font-family="Palatino, Georgia, Times, serif" font-size="44" font-weight="700" letter-spacing="10" fill="url(#gold)">TANIA</text>
-  <text x="200" y="104" text-anchor="middle" font-family="Palatino, Georgia, serif" font-size="15" font-weight="700" letter-spacing="8" fill="#c41648">POWER FUCK</text>
-  <line x1="120" y1="114" x2="280" y2="114" stroke="#e8c989" stroke-width="1" opacity=".7"/>
-  <text x="200" y="132" text-anchor="middle" font-family="Georgia, serif" font-size="12" font-style="italic" fill="#d8c4a0">Sondrio · Val Malenco</text>
-  </svg>`;
-}
-let db=load(), view=new Date(), openId=null, cat='pf';
-function load(){try{const x=JSON.parse(localStorage.getItem(K)); if(x&&x.bulls) return x;}catch(e){} return {bulls:SEED.map(b=>({...b,photo:face(b),rating:0})),appts:[]};}
-function save(){localStorage.setItem(K,JSON.stringify(db))}
-function stars(n){n=+n||0;return '★'.repeat(n)+'☆'.repeat(5-n)}
-function toast(t){const el=document.getElementById('msg');el.textContent=t;el.className='banner on';clearTimeout(toast._t);toast._t=setTimeout(()=>el.className='banner',3200)}
-function show(id){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('on',p.id===id));document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.tab===id));}
-function renderCats(){document.getElementById('cats').innerHTML=CATS.map(c=>`<button class="${c.id===cat?'on':''}" onclick="setCat('${c.id}')">${c.name}<small>${c.sub}</small></button>`).join('')}
-function setCat(id){cat=id;renderCats();renderList();show('bulls')}
-function img(b){return `<img class="ph" src="${b.photo||face(b)}" alt="${b.name}"/>`}
-function renderList(){
- const q=(document.getElementById('q').value||'').toLowerCase();
- const rows=db.bulls.filter(b=>b.cat===cat && (b.name+' '+b.city+' '+(b.spec||[]).join(' ')).toLowerCase().includes(q));
- document.getElementById('list').innerHTML=rows.map(b=>`<button class="card" onclick="openBull('${b.id}')">${img(b)}<div>
-  <b>${b.name}</b> <span class="stars">${stars(b.rating)}</span>
-  <div class="meta">${b.age} · ${b.city} · ${b.h}cm · ${b.build} · ${b.cm}cm</div>
-  <div>${(b.spec||[]).map(s=>`<span class="chip">${s}</span>`).join('')}</div>
- </div></button>`).join('')||'<p class="meta">Nessun bull.</p>';
-}
-function openBull(id){
- openId=id; const b=db.bulls.find(x=>x.id===id); if(!b) return;
- const mine=db.appts.filter(a=>a.bullId===id).sort((a,c)=>a.start-c.start);
- document.getElementById('detail').innerHTML=`<div class="card" style="display:block">
-  <div style="display:flex;gap:12px;align-items:center">${img(b)}<div><b style="font-size:22px">${b.name}</b><div class="meta">${b.age} anni · ${b.city}</div></div></div>
-  <div class="meta" style="margin-top:8px">${b.h} cm · ${b.build} · ${b.cm} cm</div>
-  <div>${(b.spec||[]).map(s=>`<span class="chip">${s}</span>`).join('')}</div>
-  <label>Stelle</label>
-  <div class="row">${[1,2,3,4,5].map(n=>`<button class="btn ${b.rating===n?'':'g'}" onclick="rate('${id}',${n})">${n}★</button>`).join('')}</div>
-  <label>Quando</label><input id="d_when" type="datetime-local"/>
-  <label>Durata</label><select id="d_dur"><option value="60">60 min</option><option value="90" selected>90 min</option><option value="120">2 ore</option><option value="180">3 ore</option></select>
-  <label>Luogo</label><input id="d_place" placeholder="Sondrio, Chiesa, hotel..."/>
-  <div class="row"><button class="btn" onclick="book('${id}')">Prenota</button><button class="btn g" onclick="show('bulls')">Indietro</button></div>
-  <h3>Suoi slot</h3>${mine.map(a=>`<div class="card" style="display:block">${fmt(a.start)} → ${fmt(a.end)} · ${a.place||''}<div><button class="btn g" onclick="delAp('${a.id}')">Cancella</button></div></div>`).join('')||'<p class="meta">Nessuna prenotazione.</p>'}
- </div>`; show('detail');
-}
-function rate(id,n){const b=db.bulls.find(x=>x.id===id); if(!b)return; b.rating=n; save(); openBull(id); renderList();}
-function overlap(s,e){return db.appts.find(a=>s<a.end && a.start<e)}
-function book(id){
- const when=document.getElementById('d_when').value; if(!when) return toast('Scegli data e ora');
- const start=new Date(when).getTime(), end=start+(+document.getElementById('d_dur').value)*60000;
- const hit=overlap(start,end);
- if(hit){const o=db.bulls.find(b=>b.id===hit.bullId); return toast('Occupata: '+(o?o.name:'altro')+' '+fmt(hit.start));}
- db.appts.push({id:'a'+Date.now(),bullId:id,start,end,place:document.getElementById('d_place').value.trim()});
- save(); openBull(id); renderCal(); toast('Prenotato');
-}
-function delAp(id){db.appts=db.appts.filter(a=>a.id!==id); save(); if(openId) openBull(openId); renderCal();}
-function fmt(t){return new Date(t).toLocaleString('it-IT',{weekday:'short',day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'})}
-function renderCal(){
- const y=view.getFullYear(), m=view.getMonth();
- document.getElementById('mtitle').textContent=view.toLocaleString('it-IT',{month:'long',year:'numeric'});
- const off=(new Date(y,m,1).getDay()+6)%7, days=new Date(y,m+1,0).getDate();
- let html=['L','M','M','G','V','S','D'].map(n=>`<b>${n}</b>`).join('')+'<i></i>'.repeat(off);
- for(let d=1;d<=days;d++){const day=new Date(y,m,d).getTime(), next=day+86400000; const busy=db.appts.some(a=>a.start<next&&a.end>day); html+=`<span class="${busy?'busy':''}">${d}</span>`;}
- document.getElementById('grid').innerHTML=html;
- document.getElementById('agenda').innerHTML=db.appts.slice().sort((a,b)=>a.start-b.start).map(a=>{const b=db.bulls.find(x=>x.id===a.bullId); return `<div class="card"><div><b>${b?b.name:'?'}</b><div class="meta">${fmt(a.start)} → ${fmt(a.end)} · ${a.place||'—'} · ${b?b.city:''}</div></div><button class="btn g" onclick="delAp('${a.id}')">x</button></div>`;}).join('')||'<p class="meta">Nessuno slot.</p>';
-}
-function addBull(){
- const name=document.getElementById('n_name').value.trim(); if(!name) return toast('Serve il nome');
- const b={id:'c'+Date.now(),cat:document.getElementById('n_cat').value,name,age:30,city:document.getElementById('n_city').value,h:180,build:'',cm:0,spec:document.getElementById('n_spec').value.split(',').map(s=>s.trim()).filter(Boolean),rating:0};
- b.photo=face(b); db.bulls.unshift(b); save(); show('bulls'); renderList(); toast('Bull salvato');
-}
-document.getElementById('logo1').innerHTML=logoSvg();
-document.getElementById('logo2').innerHTML=logoSvg();
-document.getElementById('n_city').innerHTML=TOWNS.map(t=>`<option>${t}</option>`).join('');
-document.getElementById('enter').onclick=()=>{document.getElementById('gate').style.display='none'; renderCats(); renderList(); renderCal();};
-document.getElementById('q').oninput=renderList;
-document.getElementById('saveb').onclick=addBull;
-document.getElementById('prev').onclick=()=>{view=new Date(view.getFullYear(),view.getMonth()-1,1); renderCal();};
-document.getElementById('next').onclick=()=>{view=new Date(view.getFullYear(),view.getMonth()+1,1); renderCal();};
-document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{show(b.dataset.tab); if(b.dataset.tab==='cal') renderCal(); if(b.dataset.tab==='bulls') renderList();});
-</script>
+<div class="cal" id="grid"></div>
+<h3 style="padding:0 14px">Agenda</h3>
+<div id="agenda"></div>
+</section>
+</div>
+<script>const PHOTOS={}; let LOGO='';</script>
+<script src="assets/logo.js"></script>
+<script src="assets/photos-a.js"></script>
+<script src="assets/photos-b.js"></script>
+<script src="app.js"></script>
 </body></html>
